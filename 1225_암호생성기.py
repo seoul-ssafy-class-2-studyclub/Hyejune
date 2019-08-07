@@ -5,15 +5,26 @@ for t in range(10):
 
     i = 1
     while True:
-        if base_list[0]-i <= 0:
+        if i ==5:
+            K = 5
+        else:
+            K = i % 5
+
+        if base_list[0]-K <= 0:
+            print(base_list)
+            base_list.append(0)
+            base_list.pop(0)
             break
         else:
-            base_list.append(base_list[0]-i)
+            base_list.append(base_list[0]-K)
             base_list.pop(0)
-            
-        if not i % 8:
-            i = 1
-        else:    
-            i += 1
+        # print()
+        # print(base_list)
+        # print('i값은' + str(K))
+
+        i += 1
+        
+
+
     print('#' + str(N) + ' ')
     print(base_list)

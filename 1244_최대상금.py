@@ -1,3 +1,5 @@
+# 이거는 수정전 코드 => 최대상금_re.py가 최종본
+
 def my_sort(arr):                       # 내림차순 정렬 함수 정의
     for i in range(len(arr)):
         for j in range(i+1, len(arr)):
