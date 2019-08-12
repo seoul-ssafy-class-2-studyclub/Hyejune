@@ -5,13 +5,13 @@ for t in range(10):
 
     i = 1
     while True:
-        if i ==5:
+        if i % 5 == 0:
             K = 5
         else:
             K = i % 5
 
         if base_list[0]-K <= 0:
-            print(base_list)
+            # print(base_list)
             base_list.append(0)
             base_list.pop(0)
             break
@@ -26,5 +26,5 @@ for t in range(10):
         
 
 
-    print('#' + str(N) + ' ')
-    print(base_list)
+    print('#' + str(N) + ' ', end='')
+    print(' '.join(map(str,base_list)))
