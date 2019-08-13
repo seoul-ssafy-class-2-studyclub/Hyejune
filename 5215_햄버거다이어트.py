@@ -1,3 +1,5 @@
+# 이건 너무 느려서 fail뜸 - 5215_햄버거다이어트_re.py 파일에 다시짬
+
 test_num = int(input())
 
 for t in range(test_num):
@@ -12,7 +14,7 @@ for t in range(test_num):
         score_list.append(a)
         kcal_list.append(b)
 
-    print(score_list, kcal_list)
+    # print(score_list, kcal_list)
 
     for i in range(1<<N):
         idx_list.append([])
@@ -29,18 +31,15 @@ for t in range(test_num):
 
     for i in range(len(idx_list)):
         sum = 0
-        for j in range(len(idx_list[i])):
+        for j in idx_list[i]:
             sum += score_list[j]
         result_list.append(sum)
 
 
 
-    print(idx_list)
-    print(result_list)
+    # print(idx_list)
+    # print(result_list)
 
-    # for key, val in base_dict.items():
-
-
-
-    # print('#' + str(t+1) + ' ', end = '')
-    # print(result)
+    result = max(result_list)
+    print('#' + str(t+1) + ' ', end = '')
+    print(result)
