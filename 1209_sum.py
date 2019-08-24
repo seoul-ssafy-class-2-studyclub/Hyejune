@@ -1,3 +1,9 @@
+def my_max(a):                  # 최대값을 구하는 함수 my_max 정의
+    max_int = a[0]
+    for i in a:
+        if i > max_int:
+            max_int = i
+    return max_int
 
 for t in range(10):
     test_num = int(input())
