@@ -19,8 +19,8 @@ def iceberg(arr):
     temp_arr = [0]*N            # 판별에 사용할 임시보드 복사(deep copy)
     for i in range(N):
         temp_arr[i] = arr[i][:]
-    if FirstIdx(arr) == 1:
-        return 1
+    if FirstIdx(arr) == False:
+        return -1
     else:   
         stack = [FirstIdx(arr)]
     visted = [0]*N
@@ -79,11 +79,11 @@ def melt(idx):
 cnt = 0
 
 while iceberg(board):
-    if iceberg(board) == 1:
+    if iceberg(board) == -1:
         cnt = 0
         break
     melt(FirstIdx(board))
-    pprint(board)
+    # pprint(board)
     # for i in range(N):
     #     for j in range(M):
     #         if board[i][j] == -1:
