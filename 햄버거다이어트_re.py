@@ -1,25 +1,30 @@
-def my_func(n, k):      # 지금까지 찬 칼로리, (남은) 재료 개수
-    # result_score = 0
-    if done :
-        return result_score
-    else: 
-        for i in range(1<<5)
-
+test_num = int(input())
 
 for t in range(test_num):
     N, L = map(int, input().split())
-    score_list = []
-    kcal_list = []
-    idx_list = []
-    result = 0
-    
-
+    info_list = [0]*N
     for i in range(N):
-        a, b = map(int, input().split())
-        score_list.append(a)
-        kcal_list.append(b)
+        info_list[i] = list(map(int,input().split()))
+
+    max_score = 0
+
+    def hamburger(k,c,score):        # k는 깊이(depth), c는 지금까지의 칼로리, score는 지금까지의 점수
+        global max_score
+        if k == N:
+            if score > max_score:
+                max_score = score
+            return
+        else:
+            for i in range(2):
+                if i == 0:
+                    hamburger(k+1,c,score)
+                elif i == 1:
+                    if c + info_list[k][1] > L:
+                        return
+                    else:
+                        hamburger(k+1, c + info_list[k][1], score + info_list[k][0])
 
 
-
-    print('#' + str(t+1) + ' ', end = '')
-    print(result)
+    hamburger(0,0,0)
+    print('#' + str(t+1)+ ' ',end='')
+    print(max_score)
