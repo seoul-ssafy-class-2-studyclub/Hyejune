@@ -16,6 +16,11 @@ for t in range(test_num):
                 peak_idx.append([i,j])
             elif board[i][j] == peak:
                 peak_idx.append([i,j])
+            
+
+    visited = [[False] * N for _ in range(N)]
+
+
 
     result_list = []
     def longestWay(y, x, arr, l, chance):
@@ -26,20 +31,23 @@ for t in range(test_num):
             rx = x + d[i][1]
             if 0 <= ry < N and 0 <= rx < N:
                 if board[ry][rx] < current_num:
+                    visited[ry][rx] = True
                     longestWay(ry, rx, arr+[board[ry][rx]], l+1, chance)
+                    visited[ry][rx] = False
                 else:
                     if chance:
                         result_list.append([arr,l])
                     else:
-                        if current_num > board[ry][rx] - K:
+                        if current_num > board[ry][rx] - K and not visited[ry][rx]:
                             longestWay(ry, rx, arr+[current_num - 1], l+1, True)
         if l > max_len:
-            print(arr)
             max_len = l
         
     for i in range(len(peak_idx)):
         a, b = peak_idx[i]
+        visited[a][b] = True
         longestWay(a,b, [board[a][b]],1,False)
+        visited[a][b] = False
 
     print('#' + str(t+1) + ' ',end='')
     print(max_len)

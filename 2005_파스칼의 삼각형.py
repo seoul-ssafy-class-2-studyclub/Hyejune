@@ -16,12 +16,14 @@ def print_pascal(x):
 
     for i in range(pascal_len):
         for j in pascal_list[i]:
-            print(j, end='')
+            print(j, end=' ')
         print()
 
 
-test_case_num = input()
+test_num = int(input())
 
-for i in range(int(test_case_num)):
-    print(f'# {i+1}')
-    print_pascal(i+1)
+for t in range(test_num):
+    N = int(input())
+
+    print('#' + str(t+1))
+    print_pascal(N)
