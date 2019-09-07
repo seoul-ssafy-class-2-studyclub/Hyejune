@@ -14,8 +14,6 @@ for t in range(test_num):
 
     S, G = map(int,input().split())
 
-    # print(adj_list)
-
     cnt = 0
     flag = 0
     queue = [S]
