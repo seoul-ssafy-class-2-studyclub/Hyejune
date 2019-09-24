@@ -5,7 +5,7 @@ for i in range(N):
     info.append(list(map(int,input().split())))
 
 
-def max_work(k,total):
+def max_work(k,total): 
     global max_total
     if k >= N:
         if total > max_total:
