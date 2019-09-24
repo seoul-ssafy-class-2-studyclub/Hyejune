@@ -6,11 +6,24 @@ for t in range(test_num):
     N = base_list.pop(0)
     min_cnt = 99999
 
-    def refill(arr, k, cnt):
+    def refill(battery, k, cnt):
         global min_cnt
-        if k >= N:
-            if min_cnt > cnt
-            break
+        if k == N - 1:
+            if min_cnt > cnt:
+                min_cnt = cnt
+            return
+        else:
+            if cnt >= min_cnt:
+                return
+            # for i in range(2):
+                # if i == 0:  # k 번째를 안고른다
+            if battery > 0 :
+                refill(battery - 1, k + 1, cnt)
+                # elif i == 1:    # k 번째를 고른다
+            refill(base_list[k] - 1, k + 1, cnt + 1 )
 
-    print(N, base_list)
+
+    refill(base_list[0] - 1, 1, 0)
+
     print('#' + str(t+1) + ' ', end='')
+    print(min_cnt)
