@@ -1,13 +1,13 @@
 N = int(input())
-population = [0]
-pupulation = list(map(int,input().split()))
-# print(pupulation)
+
+population = list(map(int,input().split()))
+# print(population)
 adj = [[] for i in range(N + 1)]
 for i in range(N):
     temp = list(map(int,input().split()))
     adj[i+1] = temp[1:]
 
-print(adj)
+# print(adj)
 result_list = []
 min_difference = 999999
 
@@ -23,27 +23,31 @@ def connected(a,b):
     visited = [False] * (N + 1)
     visited[0] = True
     visited[a] = True
-    queue = adj[a]
+    queue = adj[a][:]
+    # print(queue)
+    # print(adj[a])
+    # print('ㅋㅋㅋㅋ')
     while queue:
+        # print('왜')
         temp = queue.pop(0)
         if temp == b:
-            print('연결')
+            # print('연결')
             return True
         if not visited[temp]:
             visited[temp] = True
-            queue.extend(adj[temp])
+            queue.extend(adj[temp][:])
     return False
 
 def isit(arr):
     length = len(arr)
     if length == 1:
-        return pupulation[arr[0]-1]
+        return population[arr[0] - 1]
     else:
         sum_population = 0
-        for i in range(1,length+1):
-            sum_population += pupulation[arr[i]-1]
-            for j in range(i+1,length+1):
-                temp = connected(i,j)
+        for i in range(length):
+            sum_population += population[arr[i] - 1]
+            for j in range(i+1, length):
+                temp = connected(arr[i],arr[j])
                 if temp == False:
                     return False
         
@@ -57,14 +61,14 @@ else:
 for i in range(x+1):
     combi(0,[],0, i)
 
-print(result_list)
+# print(result_list)
 
 while result_list:
     temp_top = result_list.pop(0)
     temp_bottom = result_list.pop()
     a = isit(temp_top)
     b = isit(temp_bottom)
-    print(a,b)
+    # print(a,b)
     if a == False:
         continue
     if b == False:
