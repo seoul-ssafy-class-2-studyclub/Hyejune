@@ -1,3 +1,5 @@
+# Kruskal or Prim algorithm 적용 문제
+
 test_num = int(input())
 
 for t in range(test_num):
