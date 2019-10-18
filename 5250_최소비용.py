@@ -109,7 +109,6 @@ test_num = int(input())
 D = [(0,1), (0,-1), (1,0), (-1,0)]
 for t in range(test_num):
     N = int(input())
-    min_result = 999999
     board = [0] * N
     queue = []
     
