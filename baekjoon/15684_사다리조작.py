@@ -1,3 +1,4 @@
+
 from pprint import pprint
 
 N, M, H = map(int, input().split())     # N은 세로수 갯수(뼈대), M은 가로수 개수(현재), H는 가로선을 놓을수있는 개수
